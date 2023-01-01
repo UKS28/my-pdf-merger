@@ -1,0 +1,31 @@
+MODULES NEEDED- 
+1.express
+2.pdf-merge-js
+3.multer -- is nodejs midddleware to upload the pdfs/files
+
+
+THREE FILES 
+1.INDEX.HTML
+--> bootstrap is used to make navbar and form
+        
+"<input type="file" name="pdfs" class="form-control-file" id="exampleFormControlFile1" multiple accept=".pdf">"
+--> 
+   type- file:  to take file type input
+   name-pdfs :  in server.js file "upload.array('pdfs', 2)"
+   multiple     to take multiple files as input
+   accept-      accept only .pdf files
+
+2.MERGE.js
+-->merge-pdf-js on search  provides some code look into into
+-->mergePDF is async function which takes two file as input and merge and save it in given 
+  directory with given name
+-->then export merge
+
+3.SERVER.js
+--> app.use('/static', express.static('public')) : to serve the staic files 
+-->.post part copies from multer site
+-->res.redirect : will redirect you to be given address
+-->app.use('/st', express.static('public')) : 
+  meaning for each request of type "root/st " save the file in public named folder.
+  we call static function of express object to serve static files.
+  
